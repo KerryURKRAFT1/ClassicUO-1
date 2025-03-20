@@ -28,6 +28,24 @@ namespace ClassicUO.Network
 
         private static uint _requestedGridLoot;
 
+
+        private static void HandleSetTooltipPacket(Packet p)
+        {
+            string tooltipText = p.ReadASCII(256);
+
+            // Imposta il tooltip nel client
+            // Supponiamo che tu abbia una funzione SetTooltip nel client ClassicUO per gestire i tooltip
+            UIManager.SetTooltip(tooltipText);
+        }
+
+        public static void Register()
+        {
+            NetClient.PacketHandlers.Add(0xDD, HandleSetTooltipPacket); // Supponiamo che 0xDD sia l'ID del pacchetto per i tooltip
+        }
+        /// <summary>
+        /// /////
+        /// </summary>
+
         private static readonly TextFileParser _parser = new TextFileParser(
             string.Empty,
             new[] { ' ' },

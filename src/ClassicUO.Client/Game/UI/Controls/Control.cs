@@ -365,6 +365,8 @@ namespace ClassicUO.Game.UI.Controls
             Tooltip = entity;
         }
 
+        
+
         public void ClearTooltip()
         {
             Tooltip = null;
